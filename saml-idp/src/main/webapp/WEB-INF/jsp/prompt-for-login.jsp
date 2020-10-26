@@ -255,7 +255,7 @@
 				$.ajax({
 					url: "enroll/key", 
 					success: function(result){
-						var myWindow = window.open("pdf/key" + user + '.pdf', "_blank", "width=1000,height=1000");
+						var myWindow = window.open("pdf/SecurityKey_" + user + '.pdf', "_blank", "width=1000,height=1000");
 						var url = location.pathname + '#key-tab';
 						location.href = url;
 						location.reload();
