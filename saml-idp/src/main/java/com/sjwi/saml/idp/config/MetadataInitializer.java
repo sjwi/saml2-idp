@@ -1,5 +1,6 @@
 package com.sjwi.saml.idp.config;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -34,8 +35,9 @@ public class MetadataInitializer {
 				.replace("{{GIVEN_NAME}}", ApplicationConstants.GIVEN_NAME)
 				.replace("{{SUR_NAME}}", ApplicationConstants.SUR_NAME)
 				.replace("{{OPERATIONS_EMAIL}}", ApplicationConstants.OPERATIONS_EMAIL);
-		PrintWriter writer = 
-	               new PrintWriter(context.getRealPath("/") + "files/metadata.xml");
+		String metadataFilePath = context.getRealPath("/") + "files/metadata.xml";
+		new File(metadataFilePath).createNewFile(); 
+		PrintWriter writer = new PrintWriter(metadataFilePath);
 		writer.print(metadata);
 		writer.close();
 	}
