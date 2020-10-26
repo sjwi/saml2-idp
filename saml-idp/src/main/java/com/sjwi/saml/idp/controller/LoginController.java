@@ -97,7 +97,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = {"/login/key"}, method = RequestMethod.POST)
-	protected void keyLogin(
+	protected ModelAndView keyLogin(
 			@RequestParam(value = "PASSWORD", required = true) String password,
 			HttpServletRequest request,
 			HttpServletResponse response) throws InvalidSessionException, SamlResponseException, InvalidUserException, InvalidLoginException, SamlBuildException, SamlSignException, IOException {
@@ -107,16 +107,16 @@ public class LoginController {
 			SecurityContextHolder.getContext()
 				.setAuthentication(new UsernamePasswordAuthenticationToken(
 						new User(cookieUser.getUsername(),"",ControllerHelper.getUserAuthorities()), null, ControllerHelper.getUserAuthorities()));
-			response.sendRedirect(context.getContextPath() + "/sso/saml2");
+			return new ModelAndView("forward:/sso/saml2");
 		}
 		else {
 			request.getSession().setAttribute("KEY_ERROR", "Invalid combination. Try again.");
-			response.sendRedirect(context.getContextPath() + "/login#key-tab");
+			return new ModelAndView("redirect:/login#key-tab");
 		}
 	}
 
 	@RequestMapping(value = {"/login/grid"}, method = RequestMethod.POST)
-	protected void gridLogin(
+	protected ModelAndView gridLogin(
 			@RequestParam(value = "pattern", required = true) String[] pattern,
 			HttpServletRequest request,
 			HttpServletResponse response) throws InvalidSessionException, SamlResponseException, InvalidUserException, InvalidLoginException, SamlBuildException, SamlSignException, IOException {
@@ -126,11 +126,11 @@ public class LoginController {
 			SecurityContextHolder.getContext()
 				.setAuthentication(new UsernamePasswordAuthenticationToken(
 						new User(cookieUser.getUsername(),"",ControllerHelper.getUserAuthorities()), null, ControllerHelper.getUserAuthorities()));
-			response.sendRedirect(context.getContextPath() + "/sso/saml2");
+			return new ModelAndView("forward:/sso/saml2");
 		}
 		else {
 			request.getSession().setAttribute("GRID_ERROR", "Incorrect pattern. Try again.");
-			response.sendRedirect(context.getContextPath() + "/login#grid-tab");
+			return new ModelAndView("redirect:/login#grid-tab");
 		}
 	}
 

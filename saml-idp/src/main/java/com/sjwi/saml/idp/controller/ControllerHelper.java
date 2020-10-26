@@ -63,6 +63,17 @@ public class ControllerHelper {
 		mv.addObject("ACS_URL",samlAttributes.getAcsUrl());
 		mv.addObject("RELAY_STATE",samlAttributes.getRelayState());
 		mv.addObject("SAML_RESPONSE", samlResponse.getEncodedResponseString());
+		clearSessionAttributes(request);
 		return mv;	
+	}
+
+	private static void clearSessionAttributes(HttpServletRequest request) {
+		request.getSession().removeAttribute("NAME_ID");
+		request.getSession().removeAttribute("ACS");
+		request.getSession().removeAttribute("RELAY_STATE");
+		request.getSession().removeAttribute("ENTITY_ID");
+		request.getSession().removeAttribute("REQ_ID");
+		request.getSession().removeAttribute("SAMLRequest");
+		request.getSession().removeAttribute("RELAY_STATE");
 	}	
 }
