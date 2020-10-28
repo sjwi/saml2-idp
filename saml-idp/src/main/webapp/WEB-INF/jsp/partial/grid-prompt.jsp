@@ -32,7 +32,9 @@
 	}
 	
 	function clearKey(event){
-		event.preventDefault();
+		if (mouseDown){
+			event.preventDefault();
+		}
 	}
 
 	document.addEventListener('contextmenu', event => clearKey(event));

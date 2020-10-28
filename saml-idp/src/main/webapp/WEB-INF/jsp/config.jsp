@@ -13,13 +13,18 @@
 							<div class="col">
 								<div class="row no-gutters">
 									<div class="col">
-										<h6 class="text-center text-danger">This Identity Provider is unconstrained, meaning it will successfully assert a response back to any Service Provider requesting authentication.</h6>
+										<h6 class="text-center text-danger">This identity provider is unconstrained, meaning it will successfully assert a response back to any Service Provider requesting authentication.</h6>
 										<h6 class="text-center text-danger"> It is intended for demonstration purposes only.</h6>
 									</div>
 								</div>
 								<div class="row no-gutters mt-4">
 									<div class="col">
 										<h5 class="text-left">Configuration Information</h5>
+									</div>
+								</div>
+								<div class="row no-gutters mt-4">
+									<div class="col text-left">
+										<div><small>The Custom SAML Identity Provider is currently only configured to work with service provider initiated requests.</small></div>
 									</div>
 								</div>
 								<div class="row no-gutters mt-4">
@@ -51,7 +56,7 @@
 								<div class="row no-gutters mt-4">
 									<div class="col text-left">
 										<div class="form-row">
-											<label class="col-sm-4 col-form-label">IdP x509 Certificate:</label>
+											<label class="col-sm-4 col-form-label">Identity Provider x509 Certificate:</label>
 											<div class="input-group col">
 												<textarea id="x509Cert" class="form-control mono-space" rows=23 disabled><%=ApplicationConstants.getPublicCertificateString()%></textarea>
 												<div class="input-group-append copy-text copy-textarea" data-target="#x509Cert" title="Copy to clip-board">

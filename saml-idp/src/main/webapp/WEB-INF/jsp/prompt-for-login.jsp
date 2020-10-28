@@ -232,6 +232,13 @@
 		var passwordInstructions = 'Enter your username and password';
 		var keyInstructions = 'Enter the key combination using your <a href="' + '${pageContext.request.contextPath}' + '/download-key" target="_blank">Authorization Key</a>';
 		var gridInstructions = 'Draw your authorization pattern';
+		var mouseDown = 0;
+		document.body.onmousedown = function() { 
+		  ++mouseDown;
+		}
+		document.body.onmouseup = function() {
+		  --mouseDown;
+		}
 		$(document).ready(function(){
 			if ($('.enroll.row').is(':visible')){
 				$('.reset-btn,.instruction-header').css('opacity','0');
