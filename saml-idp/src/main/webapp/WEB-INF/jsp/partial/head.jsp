@@ -5,8 +5,8 @@
 
 	<meta name="apple-mobile-web-app-title" content="SAML 2.0 IdP">
          <meta property="og:title" content="SAML 2.0 IdP"/>
-	 <meta property="og:image" content="${pageContext.request.contextPath}/images/icon.png" />
-	 <link rel="apple-touch-icon" th:href="${pageContext.request.contextPath}/images/icon.png">
+	 <meta property="og:image" content="${pageContext.request.contextPath}/images/app_icon.png" />
+	 <link rel="apple-touch-icon" href="${pageContext.request.contextPath}/images/app_icon.png">
 
 
 	<title>Custom SAML Identity Provider</title>
